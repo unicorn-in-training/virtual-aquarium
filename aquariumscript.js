@@ -8,7 +8,7 @@ window.onload = function () {
     goofyfishL = new Image(),
     happyfishL = new Image();
 
-    var debug = true;
+    var debug = false;
 
     var randomNumber = function () {
         var number = Math.round(Math.random() * 70);
@@ -16,6 +16,7 @@ window.onload = function () {
     };
 
     var iterationCounter = 0;
+    var interval = '';
 
     var swimmingFish = function (direction, imageName) {
         direction = direction || "R";
@@ -29,7 +30,7 @@ window.onload = function () {
         var w = window.innerWidth;
         var h = window.innerHeight;
         var pos = 0;
-        var interval = setInterval(frame, 40);
+        interval = setInterval(frame, 40);
         var sineCalc = 0;
         var x = 0;
         var y = 0;
@@ -98,11 +99,11 @@ window.onload = function () {
 
     function preload() {
         // load the images
-        angelfishR.src = 'images/angelfish-r.png';
+        angelfishR.src = 'images/angel-fish-r.png';
         clownfishR.src = 'images/clown-fish-r.png';
         goofyfishR.src = 'images/goofy-fish-r.png';
         happyfishR.src = 'images/happy-fish-r.png';
-        angelfishL.src = 'images/angelfish-l.png';
+        angelfishL.src = 'images/angel-fish-l.png';
         clownfishL.src = 'images/clown-fish-l.png';
         goofyfishL.src = 'images/goofy-fish-l.png';
         happyfishL.src = 'images/happy-fish-l.png';
@@ -110,4 +111,28 @@ window.onload = function () {
         happyfishL.onload = swimmingFish('R','happy-fish');
     }
     preload();
+
+    $(".btn-fish").on('click',function() {
+        var fishtype = $(this).text();
+        var imageName = '';
+        switch(fishtype){
+            case 'Happy Fish':
+                imageName = 'happy-fish';
+                break;
+            case 'Goofy Fish':
+                imageName = 'goofy-fish';
+                break;
+            case 'Angel Fish':
+                imageName = 'angel-fish';
+                break;
+            case 'Clown Fish':
+                imageName = 'clown-fish';
+                break;
+            default:
+                imageName = 'happy-fish';
+                break;
+        }
+        clearInterval(interval);
+        swimmingFish('R',imageName);
+    });
 };
