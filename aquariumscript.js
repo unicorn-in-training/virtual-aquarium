@@ -8,7 +8,7 @@ window.onload = function () {
     goofyfishL = new Image(),
     happyfishL = new Image();
 
-    var debug = false;
+    var debug = true;
 
     var randomNumber = function () {
         var number = Math.round(Math.random() * 70);
@@ -19,6 +19,7 @@ window.onload = function () {
 
     var swimmingFish = function (direction, imageName) {
         direction = direction || "R";
+        console.log(imageName);
         var elem = document.getElementById("animate");
         var debugText = document.getElementById("debug");
         var debugOutput = "";
@@ -39,16 +40,22 @@ window.onload = function () {
         var imgHeight = '';
         var img=new Image();
         if (direction == "R") {
-            img.src = '"images/' + imageName + '-r.png"';
+            img.src = 'images/' + imageName + '-r.png';
+            console.log(elem.innerHTML = '<img src="images/' + imageName + '-r.png" id="' + imageName+'">');
             imgWidth = img.width;
             imgHeight = img.height;
+
         } else if (direction == "L") {
-            img.src = '"images/' + imageName + '-l.png"';
+            img.src = 'images/' + imageName + '-l.png';
+            x = w - imgWidth;
+            elem.innerHTML = '<img src="images/' + imageName + '-l.png" id="' + imageName+'">';
             imgWidth = img.width;
             imgHeight = img.height;
-            x = w - imgWidth;
         }
-        elem.innerHTML = '<img src="'+img.src+'" id="' + imageName+'>';
+        if(debug){
+        console.log(imgWidth);
+        console.log(imgHeight);}
+
 
         function frame() {
             if (y > offset - 3 && y < offset + 3) {
@@ -73,7 +80,7 @@ window.onload = function () {
                     newDirection = "R";
                 }
                 iterationCounter++;
-                swimmingFish(newDirection);
+                swimmingFish(newDirection,imageName);
             } else {
                 pos++;
                 sineCalc = Math.sin(pos * 0.08);
@@ -90,9 +97,7 @@ window.onload = function () {
     };
 
     function preload() {
-        // call the notify_complete function when the image has loaded
-        happyfishL.onload = swimmingFish('R','happy-fish');
-        // load the image
+        // load the images
         angelfishR.src = 'images/angelfish-r.png';
         clownfishR.src = 'images/clown-fish-r.png';
         goofyfishR.src = 'images/goofy-fish-r.png';
@@ -101,5 +106,8 @@ window.onload = function () {
         clownfishL.src = 'images/clown-fish-l.png';
         goofyfishL.src = 'images/goofy-fish-l.png';
         happyfishL.src = 'images/happy-fish-l.png';
+        console.log('preload done');
+        happyfishL.onload = swimmingFish('R','happy-fish');
     }
+    preload();
 };
