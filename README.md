@@ -1,5 +1,6 @@
 # virtual-aquarium
-A simple JavaScript animation of some swimming fish, which is essentially an add-on to/more complicated version of my <a href="http://susieboyland.com/swimmingwhale/" target="_blank">swimming whale animation.</a>
+A simple JavaScript animation of some <a href="http://susieboyland.com/virtualaquarium/">swimming fish</a>, which is essentially an add-on to/more complicated version of my <a href="http://susieboyland.com/swimmingwhale/" target="_blank">swimming whale animation.</a>
+<br><br>Ultimately, the goal is to have multiple fish swimming across the page. In its current stage you can select your fish type from 4 options but it will replace the previous fish rather than adding a new one.
 <br><br>The images used in this animation are from <a href="https://openclipart.org" target="_blank">OpenClipart.org</a>:
 <ul>
   <li><a href="https://openclipart.org/detail/277787/cartoon-fish" target="_blank">cartoon-fish</a></li>
