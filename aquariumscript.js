@@ -53,9 +53,16 @@ window.onload = function () {
             imgWidth = img.width;
             imgHeight = img.height;
         }
+        if (imgWidth==0){
+            imgWidth = 200;
+        }
+        if (imgHeight==0){
+            imgHeight = 200;
+        }
         if(debug){
-        console.log(imgWidth);
-        console.log(imgHeight);}
+            console.log(imgWidth);
+            console.log(imgHeight);
+        }
 
 
         function frame() {
@@ -67,7 +74,7 @@ window.onload = function () {
                 debugText.innerHTML = debugOutput;
             }
             if (direction == "R") {
-                switchDirection = x + imgWidth >= w;
+                switchDirection = x + imgWidth + 10 >= w;
             } else if (direction == "L") {
                 switchDirection = x <= 0;
             }
