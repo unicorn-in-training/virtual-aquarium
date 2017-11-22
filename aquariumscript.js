@@ -52,10 +52,10 @@ window.onload = function () {
         var intervalLength = 40 - addSpeed;
         if (intervalLength <= 1) {
             intervalLength = 1;
-            console.log("Can't go any faster! " + intervalLength);
+            console.log("Can't go any faster!");
         } else if (intervalLength >= 200) {
             intervalLength = 200;
-            console.log("Too slow! " + intervalLength);
+            console.log("Too slow!");
         }
         interval = setInterval(frame, intervalLength);
         var sineCalc = 0;
@@ -95,12 +95,11 @@ window.onload = function () {
             var offset = Math.round(h - 0.7 * h) - addHeight;
             if (offset >= h - 200) {
                 offset = h - 200;
-                console.log("Too low on page " + offset);
+                console.log("Too low on page.");
             } else if (offset <= 30) {
                 offset = 30;
-                console.log("Too high on page " + offset);
+                console.log("Too high on page.");
             }
-            console.log(offset);
             if (y > offset - 3 && y < offset + 3) {
                 amplitude = randomNumber();
             }
